@@ -10,7 +10,7 @@ samtools view -b -F 1294 /disk1/yuvarani/results/cnv_testing/lumpy_sample.bam > 
 
 # Extract the split-read alignments
 samtools view -h /disk1/yuvarani/results/cnv_testing/lumpy_sample.bam \
-    | scripts/extractSplitReads_BwaMem -i stdin \
+    | /disk1/yuvarani/softwares/cnv_softwares/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
     | samtools view -Sb - \
     > /disk1/yuvarani/results/cnv_testing/lumpy_sample.splitters.unsorted.bam
 
