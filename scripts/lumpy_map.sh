@@ -20,4 +20,3 @@ samtools sort /disk1/yuvarani/results/cnv_testing/lumpy_sample.discordants.unsor
 
 # Sort split-read alignments
 samtools sort /disk1/yuvarani/results/cnv_testing/lumpy_sample.splitters.unsorted.bam /disk1/yuvarani/results/cnv_testing/lumpy_sample.splitters
-# -@ 5 -m 5G -
