@@ -8,7 +8,7 @@
 #    -o /disk1/yuvarani/results/cnv_testing/lumpy_sample.lib1.histo
 
 #run lumpy for multiple libraries in bam_file	
-/disk1/yuvarani/softwares/cnv_softwares/lumpy-sv/src/lumpy \
+lumpy \
     -mw 4 \
     -tt 0 \
     -pe id:sample,bam_file:/disk1/yuvarani/results/cnv_testing/lumpy_sample.discordants.sorted.bam,histo_file:/disk1/yuvarani/results/cnv_testing/lumpy_sample.lib1.histo,mean:500,stdev:50,read_length:101,min_non_overlap:101,discordant_z:5,back_distance:10,weight:1,min_mapping_threshold:20 \
