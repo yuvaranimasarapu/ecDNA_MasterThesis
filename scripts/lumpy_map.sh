@@ -8,17 +8,16 @@ bwa mem -t 50 /disk1/yuvarani/data/ref_genome/genome.fa /disk1/yuvarani/data/sam
     > /disk1/yuvarani/results/cnv_testing/lumpy_sample.sort.bam
 
 # Extract discordant paired-end alignments
-#samtools view -b -F 1294 /disk1/yuvarani/results/cnv_testing/lumpy_sample.bam > /disk1/yuvarani/results/cnv_testing/lumpy_sample.discordants.unsorted.bam
+samtools view -b -F 1294 /disk1/yuvarani/results/cnv_testing/lumpy_sample.sort.bam > /disk1/yuvarani/results/cnv_testing/lumpy_sample.discordants.sorted.bam
 
 # Extract the split-read alignments
-#samtools view -h /disk1/yuvarani/results/cnv_testing/lumpy_sample.bam \
-#    | /disk1/yuvarani/softwares/cnv_softwares/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
- #   | samtools view -Sb - \
-  #  > /disk1/yuvarani/results/cnv_testing/lumpy_sample.splitters.unsorted.bam
+samtools view -h /disk1/yuvarani/results/cnv_testing/lumpy_sample.sort.bam \
+    | /disk1/yuvarani/softwares/cnv_softwares/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
+    | samtools view -Sb - \
+    > /disk1/yuvarani/results/cnv_testing/lumpy_sample.splitters.sorted.bam
 
 # Sort paired-end alignments
-#samtools sort /disk1/yuvarani/results/cnv_testing/lumpy_sample.discordants.unsorted.bam /disk1/yuvarani/results/cnv_testing/lumpy_sample.discordants
-# -@ 5 -m 5G -
+#samtools sort -@ 5 -m 5G -o /disk1/yuvarani/results/cnv_testing/lumpy_sample.discordants /disk1/yuvarani/results/cnv_testing/lumpy_sample.discordants.sorted.bam 
 
 # Sort split-read alignments
 #samtools sort /disk1/yuvarani/results/cnv_testing/lumpy_sample.splitters.unsorted.bam /disk1/yuvarani/results/cnv_testing/lumpy_sample.splitters
